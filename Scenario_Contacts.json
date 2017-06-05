@@ -1,0 +1,81 @@
+{
+  "front-version": "2.3.2",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "779AA87A-BFBA-46A6-A203-692BC1A8C8CE",
+      "lastModified": "2017-05-22T11:49:10.346+02:00",
+      "name": "Contact API"
+    },
+    {
+      "type": "Scenario",
+      "id": "FA80D5A4-2C86-4E48-AD73-B7B0101CEA33",
+      "lastModified": "2017-05-22T11:39:20.133+02:00",
+      "name": "Scenario Contacts",
+      "requestOrder": [
+        "Get contacts"
+      ],
+      "parentId": "779AA87A-BFBA-46A6-A203-692BC1A8C8CE"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "scheme": {
+          "secure": true,
+          "name": "https",
+          "version": "V11"
+        },
+        "host": "angular2.restlet.net",
+        "path": "/v1/contacts"
+      },
+      "id": "3024E532-65F2-4BCA-BED5-58100B408FD5",
+      "lastModified": "2017-05-22T11:49:10.346+02:00",
+      "name": "Get contacts",
+      "headers": [],
+      "assertions": [
+        {
+          "comparison": "Contains",
+          "subject": "ResponseHeader",
+          "path": "Content-Type",
+          "value": "json"
+        },
+        {
+          "comparison": "Exists",
+          "subject": "ResponseJsonBody",
+          "path": "$[0].id",
+          "value": "10"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseJsonBody",
+          "path": "$[0].firstName",
+          "value": "John"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseJsonBody",
+          "path": "$[0].lastName",
+          "value": "Smith1"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseJsonBody",
+          "path": "$[0].company",
+          "value": "dd1f2d00-a576-11e5-ad82-f766934c5702"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "FA80D5A4-2C86-4E48-AD73-B7B0101CEA33"
+    }
+  ]
+}
